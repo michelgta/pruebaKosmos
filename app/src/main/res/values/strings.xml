@@ -19,4 +19,22 @@ limitations under the License. -->
     <string name="button_save">Save</string>
     <string name="empty_not_saved">Word not saved because it is empty.</string>
     <string name="add_word">Add word</string>
+    <string name="text_save_ic">Guardar</string>
+    <string name="text_see_all_icon">Ver todos</string>
+    <string name="text_see_one_icon">Ver usuario</string>
+    <string name="text_hint_edit_country">Country</string>
+
+
+    <string-array name="obligatory">
+        <item>No obligatorio</item>
+        <item>Obligatorio</item>
+    </string-array>
+
+
+    <string-array name="pais">
+        <item>MEXICO</item>
+        <item>EU</item>
+        <item>OTRO</item>
+    </string-array>
+
 </resources>

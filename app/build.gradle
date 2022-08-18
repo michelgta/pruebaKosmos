@@ -1,9 +1,14 @@
 plugins {
     id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id "kotlin-kapt"
 }
 
 android {
     compileSdkVersion 30
+    buildToolsVersion "30.0.1"
+
     defaultConfig {
         applicationId "com.example.android.roomwordssample"
         minSdkVersion 20
@@ -19,9 +24,20 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = 1.8
-        targetCompatibility = 1.8
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        dataBinding = true
+        // for view binding:
+        viewBinding = true
+    }
+
 }
 
 dependencies {
@@ -31,9 +47,9 @@ dependencies {
     // You'll probably have to update the version numbers in build.gradle (Project)
 
     // Room components
-    implementation "androidx.room:room-runtime:$rootProject.roomVersion"
-    annotationProcessor "androidx.room:room-compiler:$rootProject.roomVersion"
     androidTestImplementation "androidx.room:room-testing:$rootProject.roomVersion"
+    implementation "androidx.room:room-runtime:$rootProject.roomVersion"
+    kapt "androidx.room:room-compiler:$rootProject.roomVersion"
 
     // Lifecycle components
     implementation "androidx.lifecycle:lifecycle-viewmodel:$rootProject.lifecycleVersion"
@@ -51,4 +67,42 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     androidTestImplementation "androidx.test.ext:junit:$rootProject.androidxJunitVersion"
+
+
+
+    implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.navVersion"
+    implementation "androidx.navigation:navigation-ui-ktx:$rootProject.navVersion"
+
+
+
+    implementation "com.squareup.okhttp3:logging-interceptor:4.4.0"
+
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    //gson
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
+
+
+    implementation "com.squareup.moshi:moshi:1.8.0"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:1.6.0"
+    implementation "com.squareup.retrofit2:converter-moshi:2.3.0"
+
+
+    def koin_version = "2.1.4"
+    def koin_android_version = "2.1.5"
+    implementation "org.koin:koin-core:$koin_version"
+    implementation "org.koin:koin-android:$koin_android_version"
+    implementation "org.koin:koin-android-viewmodel:$koin_android_version"
+
+
+    def stethoVersion = '1.3.1'
+    implementation "com.facebook.stetho:stetho:$stethoVersion"
+    implementation "com.facebook.stetho:stetho-okhttp3:$stethoVersion"
+
+
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.9'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9'
+
+    implementation "com.github.skydoves:sandwich:1.0.9"
+
+
 }

@@ -19,10 +19,16 @@ package com.example.android.roomwordssample;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.QuickContactBadge;
+import android.widget.Spinner;
+
+import com.example.android.roomwordssample.data.model.Word;
 
 /**
  * Activity for entering a word.
@@ -32,13 +38,23 @@ public class NewWordActivity extends AppCompatActivity {
 
     public static final String EXTRA_REPLY = "com.example.android.wordlistsql.REPLY";
 
-    private EditText mEditWordView;
+    private EditText mEditWordView, mEditCountryView;
+
+    private WordViewModel mWordViewModel;
+
+    private Spinner spCountry,spObligatory;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_word);
         mEditWordView = findViewById(R.id.edit_word);
+        spCountry = findViewById(R.id.sp_country);
+        spObligatory = findViewById(R.id.sp_obligatory);
+
+        mWordViewModel = new ViewModelProvider(this).get(WordViewModel.class);
+
 
         final Button button = findViewById(R.id.button_save);
         button.setOnClickListener(view -> {
@@ -46,9 +62,8 @@ public class NewWordActivity extends AppCompatActivity {
             if (TextUtils.isEmpty(mEditWordView.getText())) {
                 setResult(RESULT_CANCELED, replyIntent);
             } else {
-                String word = mEditWordView.getText().toString();
-                replyIntent.putExtra(EXTRA_REPLY, word);
-                setResult(RESULT_OK, replyIntent);
+                Word word = new Word(mEditWordView.getText().toString(), spCountry.getSelectedItem().toString(), spObligatory.getSelectedItem().toString());
+                mWordViewModel.insert(word);
             }
             finish();
         });

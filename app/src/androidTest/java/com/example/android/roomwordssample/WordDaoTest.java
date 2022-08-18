@@ -34,6 +34,9 @@ import androidx.room.Room;
 import androidx.test.core.app.ApplicationProvider;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
+import com.example.android.roomwordssample.data.local.WordDao;
+import com.example.android.roomwordssample.data.model.Word;
+
 /**
  * This is not meant to be a full set of tests. For simplicity, most of your samples do not
  * include tests. However, when building the Room, it is helpful to make sure it works before
@@ -68,7 +71,7 @@ public class WordDaoTest {
 
     @Test
     public void insertAndGetWord() throws Exception {
-        Word word = new Word("word");
+        Word word = new Word("word","México", "obligatorio");
         mWordDao.insert(word);
         List<Word> allWords = LiveDataTestUtil.getValue(mWordDao.getAlphabetizedWords());
         assertEquals(allWords.get(0).getWord(), word.getWord());
@@ -76,9 +79,9 @@ public class WordDaoTest {
 
     @Test
     public void getAllWords() throws Exception {
-        Word word = new Word("aaa");
+        Word word = new Word("aaa", "México", "obligatorio");
         mWordDao.insert(word);
-        Word word2 = new Word("bbb");
+        Word word2 = new Word("bbb","México", "obligatorio");
         mWordDao.insert(word2);
         List<Word> allWords = LiveDataTestUtil.getValue(mWordDao.getAlphabetizedWords());
         assertEquals(allWords.get(0).getWord(), word.getWord());
@@ -87,9 +90,9 @@ public class WordDaoTest {
 
     @Test
     public void deleteAll() throws Exception {
-        Word word = new Word("word");
+        Word word = new Word("word", "México", "obligatorio");
         mWordDao.insert(word);
-        Word word2 = new Word("word2");
+        Word word2 = new Word("word2","México", "obligatorio");
         mWordDao.insert(word2);
         mWordDao.deleteAll();
         List<Word> allWords = LiveDataTestUtil.getValue(mWordDao.getAlphabetizedWords());

@@ -24,6 +24,9 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import com.example.android.roomwordssample.data.local.WordDao;
+import com.example.android.roomwordssample.data.model.Word;
+
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -73,9 +76,9 @@ abstract class WordRoomDatabase extends RoomDatabase {
                 WordDao dao = INSTANCE.wordDao();
                 dao.deleteAll();
 
-                Word word = new Word("Hello");
+                Word word = new Word("Hello", "México", "obligatorio");
                 dao.insert(word);
-                word = new Word("World");
+                word = new Word("World","México", "obligatorio");
                 dao.insert(word);
             });
         }

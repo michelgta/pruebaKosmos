@@ -1,4 +1,4 @@
-package com.example.android.roomwordssample;
+package com.example.android.roomwordssample.data.model;
 
 /*
  * Copyright (C) 2017 Google Inc.
@@ -40,12 +40,34 @@ public class Word {
     @ColumnInfo(name = "word")
     private String mWord;
 
-    public Word(@NonNull String word) {
+    @NonNull
+    @ColumnInfo(name = "country")
+    private String country;
+
+    @NonNull
+    @ColumnInfo(name = "obligatory")
+    private String obligatory;
+
+
+    public Word(@NonNull String word, @NonNull String country, @NonNull String obligatory) {
         this.mWord = word;
+        this.country = country;
+        this.obligatory = obligatory;
     }
 
     @NonNull
     public String getWord() {
         return this.mWord;
+    }
+
+
+    @NonNull
+    public String getCountry() {
+        return this.country;
+    }
+
+    @NonNull
+    public String getObligatory() {
+        return this.obligatory;
     }
 }

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_menu_save"
+        android:icon="@drawable/ic_save_icon"
+        android:orderInCategory="1"
+        android:title="@string/text_save_ic"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_menu_all_users"
+        android:icon="@drawable/ic_all_users"
+        android:orderInCategory="2"
+        android:title="@string/text_see_all_icon"
+        app:showAsAction="ifRoom" />
+
+
+    <item
+        android:id="@+id/action_menu_one_user"
+        android:icon="@drawable/ic_one_user"
+        android:orderInCategory="3"
+        android:title="@string/text_see_one_icon"
+        app:showAsAction="ifRoom" />
+
+</menu>

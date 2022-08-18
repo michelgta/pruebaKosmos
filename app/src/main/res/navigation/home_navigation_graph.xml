@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_navigation_graph"
+    app:startDestination="@id/action_menu_save">
+    <fragment
+        android:id="@+id/action_menu_save"
+        android:name="com.example.android.roomwordssample.ui.new_registry.NewRegistryFragment"
+        android:label="NewRegistryFragment"
+        tools:layout="@layout/new_registry_fragment">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/action_menu_all_users"
+        android:name="com.example.android.roomwordssample.ui.all_users.AllUsersFragment"
+        android:label="AllUsersFragment"
+        tools:layout="@layout/all_users_fragment"
+   />
+
+
+    <fragment
+        android:id="@+id/action_menu_add_users"
+        android:name="com.example.android.roomwordssample.ui.all_users.AllUsersFragment"
+        android:label="AllUsersFragment"
+        tools:layout="@layout/all_users_fragment"
+        />
+
+</navigation>

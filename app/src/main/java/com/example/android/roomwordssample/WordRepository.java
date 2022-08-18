@@ -19,6 +19,9 @@ package com.example.android.roomwordssample;
 import android.app.Application;
 import androidx.lifecycle.LiveData;
 
+import com.example.android.roomwordssample.data.local.WordDao;
+import com.example.android.roomwordssample.data.model.Word;
+
 import java.util.List;
 
 /**

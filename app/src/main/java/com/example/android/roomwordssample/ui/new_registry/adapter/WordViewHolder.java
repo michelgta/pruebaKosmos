@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.roomwordssample;
+package com.example.android.roomwordssample.ui.new_registry.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,16 +23,23 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.android.roomwordssample.R;
+import com.example.android.roomwordssample.data.model.Word;
+
 class WordViewHolder extends RecyclerView.ViewHolder {
-    private final TextView wordItemView;
+    private  TextView wordItemView, countryItemView, obligatoryItemView;
 
     private WordViewHolder(View itemView) {
         super(itemView);
         wordItemView = itemView.findViewById(R.id.textView);
+        countryItemView = itemView.findViewById(R.id.textViewCountry);
+        obligatoryItemView = itemView.findViewById(R.id.textViewObligatory);
     }
 
-    public void bind(String text) {
-        wordItemView.setText(text);
+    public void bind(Word word) {
+        wordItemView.setText(word.getWord());
+        countryItemView.setText(word.getCountry());
+        obligatoryItemView.setText(word.getObligatory());
     }
 
     static WordViewHolder create(ViewGroup parent) {
