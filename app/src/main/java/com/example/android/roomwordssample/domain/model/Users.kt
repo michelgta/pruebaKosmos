@@ -1,4 +1,4 @@
-package com.example.android.roomwordssample.data.model
+package com.example.android.roomwordssample.domain.model
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass

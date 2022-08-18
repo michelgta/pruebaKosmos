@@ -1,5 +1,8 @@
 package com.example.android.roomwordssample.di
 
+import com.example.android.roomwordssample.domain.usecase.GetUsersUseCase
+import com.example.android.roomwordssample.domain.usecase.GetUsersUseCaseImpl
+import com.example.android.roomwordssample.repository.UsersRepository
 import com.example.android.roomwordssample.utils.Constants.URL_BASE
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.skydoves.sandwich.coroutines.CoroutinesResponseCallAdapterFactory
@@ -9,6 +12,15 @@ import okhttp3.OkHttpClient
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+
+val ApplicationModule = module {
+
+    factory<GetUsersUseCase> {
+        GetUsersUseCaseImpl(get() as UsersRepository)
+    }
+
+}
+
 
 
 val NetworkModule = module {

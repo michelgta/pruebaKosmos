@@ -1,6 +1,6 @@
 package mx.com.movieschallenge.data.remote
 
-import com.example.android.roomwordssample.data.model.Users
+import com.example.android.roomwordssample.domain.model.Users
 import retrofit2.http.GET
 import retrofit2.http.Query
 
